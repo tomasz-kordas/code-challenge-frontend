@@ -1,0 +1,13 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">{{title}}</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="closeBtn()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <h4>Error: {{name}}</h4>
+  What went wrong: {{message}}
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" (click)="closeBtn()">Close</button>
+</div>

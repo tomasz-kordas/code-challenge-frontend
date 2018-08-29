@@ -1,0 +1,32 @@
+<div class="container account-form account-input">
+  <div class="form-signin ">
+    <p class="form-header">Please sign in</p>
+    <form [formGroup]="form">
+      <div class="form-group">
+        <input class="form-control" type="text" formControlName="username" id="username" required
+               placeholder="Username">
+        <br>
+        <input class="form-control" type="text" formControlName="password" id="password" required
+               placeholder="Password ">
+      </div>
+      <button [disabled]="enableLogin()" type="button" class="btn btn-primary btn-block"
+              (click)="createAndLogUser()">Sign in
+      </button>
+    </form>
+  </div>
+  <div class="password-rules">
+    <p class="password-header">Please ensure that you follow below rules</p>
+    <p class="rule"
+       [ngClass]=" {'alert-danger' : checkUserLength()}">
+      The username length has a minimum length 5 characters
+    </p>
+    <p class="rule"
+       [ngClass]=" {'alert-danger' : checkPasswordLength()}">
+      The password length has a minimum length 8 characters
+    </p>
+    <p class="rule"
+       [ngClass]=" {'alert-danger' : checkPasswordPattern()}">
+      The password contains at least 1 number, 1 uppercase and 1 lowercase character
+    </p>
+  </div>
+</div>

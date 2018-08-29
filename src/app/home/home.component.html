@@ -1,0 +1,26 @@
+<div class="container home-container">
+  <div class="row menu-header">
+    <div class="col-xs-12 col-sm-6 col-lg-4">
+      <button type="button" class="btn btn-dark btn-block" (click)="logoutBtn()">
+        Log out
+      </button>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-lg-8">
+      <div class="form-group">
+        <input class="form-control" type="text" [(ngModel)]="searchBox" id="searchBox" placeholder="search">
+      </div>
+    </div>
+  </div>
+
+  <div id="container" [@listAnimation]="posts.length">
+    <div *ngFor="let post of posts | reverse | filterBy: ['body', 'title']: searchBox" class="q"
+         [@listAnimation]="posts.length">
+      <div class="col-sm-6 col-lg-4 tile">
+        <div class="post" [routerLink]="['/details/'+post.id]">
+          <div class="post-author">UserId: {{post.username}}</div>
+          <div class="post-title">Title: {{post.title}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
